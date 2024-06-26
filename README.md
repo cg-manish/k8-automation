@@ -22,3 +22,17 @@ NAMESPACE="ingress-nginx"
 
 kubectl get namespace $NAMESPACE -o json > $NAMESPACE.json
 kubectl replace --raw "/api/v1/namespaces/$NAMESPACE/finalize" -f ./$NAMESPACE.json
+
+
+### ARgo cd tls bootstrap steps:
+```
+kubectl create -n argocd secret tls argocd-server-tls \
+  --cert=/path/to/cert.pem \
+  --key=/path/to/key.pem
+
+## for dex
+kubectl create -n argocd secret tls argocd-dex-server-tls \
+  --cert=/path/to/cert.pem \
+  --key=/path/to/key.pem
+
+```

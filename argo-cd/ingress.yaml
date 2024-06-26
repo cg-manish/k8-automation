@@ -26,4 +26,4 @@ spec:
   tls:
   - hosts:
     - argo.k8.macgain.net
-    secretName: argocd-server-tls # as expected by argocd-server
+    secretName: argocd-tls-secret

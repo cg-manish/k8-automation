@@ -85,7 +85,7 @@ spec:
           service:
             name: kube-prometheus-stack-grafana   
             port: 
-              number: 80
+              number: 9090
   tls:
   - hosts:
     - prometheus.k8.macgain.net

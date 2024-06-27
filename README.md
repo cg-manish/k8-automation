@@ -76,6 +76,11 @@ kubectl create secret tls argocd-tls-secret --cert=test.crt --key=argocd-tls.key
 ```
 
 
+## OR use Cert-Manager with Lets envrypt for SSL certs
+- If domain is managed through cloudflare disable proxy it fails ths validation requests
+- Use annotations in ingress
+- Cert manager creates Certificate and Secrest, can also take care of rotation of the certs.
+
 
 ### Vault
 Vault installation guide: https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-raft-deployment-guide 
@@ -101,7 +106,7 @@ Unseal Key 5: IIVF9Z+g6trzMC+wNPZAuyK4fgNCqsRp3RjnQYFijjYz
 ```
 Also the initial root token. The root token can also be envrypted with pgp.
 ```
- hvs.m4cE6DuVWYhrQzNPUTmlyBj9
+hvs.m4cE6DuVWYhrQzNPUTmlyBj9
 
 ```
 

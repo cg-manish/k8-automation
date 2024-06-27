@@ -38,7 +38,7 @@ metadata:
   labels:
     name: grafana-ingress
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-staging
+    cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
     # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:

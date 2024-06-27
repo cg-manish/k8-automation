@@ -12,7 +12,7 @@ spec:
     helm:
       releaseName: prometheus-stack
   destination:
-    server: "httpps://kubernetes.default.svc"
+    server: "https://kubernetes.default.svc"
     namespace: argocd
   syncPolicy:
     automated:

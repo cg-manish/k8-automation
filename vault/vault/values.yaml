@@ -420,12 +420,13 @@ server:
     
     annotations: |
       oci.oraclecloud.com/load-balancer-type: "lb"
-      cert-manager.io/cluster-issuer: letsencrypt-staging
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      cert-manager.io/common-name: "vault.k8.macgain.net"
       nginx.ingress.kubernetes.io/ssl-passthrough: "true"
       service.beta.kubernetes.io/oci-load-balancer-shape: "flexible"
       service.beta.kubernetes.io/oci-load-balancer-shape-flex-min: "10mbps"
       service.beta.kubernetes.io/oci-load-balancer-shape-flex-max: "10mbps"
-    
+
       # |
       # kubernetes.io/ingress.class: nginx
       # kubernetes.io/tls-acme: "true"
@@ -456,9 +457,9 @@ server:
     #       port:
     #         number: use-annotation
     tls: 
-     - secretName: vault-tls
+     - secretName: vault-tls-secret
        hosts:
-         - vault.macgain.net
+         - vault.k8.macgain.net
 
   # hostAliases is a list of aliases to be added to /etc/hosts. Specified as a YAML list.
     hostAliases: []

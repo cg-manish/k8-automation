@@ -11,13 +11,13 @@ spec:
     repoURL: https://prometheus-community.github.io/helm-charts
     chart: kube-prometheus-stack
     targetRevision: "60.4.0"
-      values: |
-        prometheus:
-          prometheusSpec:
-            serviceMonitorSelectorNilUsesHelmValues: false
-        alertmanager:
-          alertmanagerSpec:
-            replicas: 1
+      # values: |
+      #   prometheus:
+      #     prometheusSpec:
+      #       serviceMonitorSelectorNilUsesHelmValues: false
+      #   alertmanager:
+      #     alertmanagerSpec:
+      #       replicas: 1
   project: default
   syncPolicy:
     automated:

@@ -13,5 +13,8 @@ spec:
       releaseName: prometheus-stack
   destination:
     server: "httpps://kubernetes.default.svc"
-    namespace: prometheus
-
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

@@ -27,3 +27,65 @@ spec:
   - hosts:
     - argo.k8.macgain.net
     secretName: argocd-tls-secret
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: grafana-ingress
+  labels:
+    name: grafana-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+    # nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx-ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+spec:
+  ingressClassName: "nginx"
+  rules:
+  - host: grafana.k8.macgain.net
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: kube-prometheus-stack-grafana   
+            port: 
+              number: 80
+  tls:
+  - hosts:
+    - grafana.k8.macgain.net
+    secretName: grafana-tls-secret
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: prometheus-ingress
+  labels:
+    name: prometheus-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+    # nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx-ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+spec:
+  ingressClassName: "nginx"
+  rules:
+  - host: prometheus.k8.macgain.net
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: kube-prometheus-stack-grafana   
+            port: 
+              number: 80
+  tls:
+  - hosts:
+    - prometheus.k8.macgain.net
+    secretName: prometheus-tls-secret

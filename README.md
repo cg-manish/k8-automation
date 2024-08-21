@@ -1,17 +1,45 @@
-### Things to install in the cluster
+# What does this repository even do?
+The main goal of this repository is to act as management cluster for the ArgoCD. It will contain the manifest for the resoruces/app/application sets that go in the Argo cluster. 
 
-1. Cilium
-2. ArgoCD
-3. Use helm for everythign
-4. Databases like mysql, postgres, oracle
-5. Nice monitoring with prometheus, grafana, jaegar, loki stuff
-6. ELK
-7. Metal lb maybe or in another cluster. learn bgp stuff
-8. Create cluster from scratch with kubeadm
-9. Ingress/ nginx and maybe Traefik as well.
-10. VAULT
-11. Apache Kafka
-12. Rabbit MQ
+This cluster will have its own monitoring and observability. Likewise it will also contain the Vault things.
+
+Resources in the Argo cluster:
+1. Prom/Grafna monitoring
+2. Ingress for Argo's API and UI
+3. Ingress for Vault's API and UI. (or maybe create a separate vault cluster)
+
+
+
+# overall design
+
+
+Management cluster  ===> Prod cluster, dev clusters, or bunch of clusters
+
+### Each clusters will have the following resources:
+1. CNI with CILIUM with Hubble stuff enabled
+2. Databases like mysql, postgres, oracle db, mongo db, cassandra
+3. Big data stuff: Hadoop, spark, airflow and other things needed
+4. Monitoring and observaility with Prometheus, grafana, data dog, dynatrace and ELK
+5. Ingress with Nginx and maybe others like Kong,Traefik
+6. Service mesh
+7. MQs : Kafka, Rabbit MQ
+8. Cert Manager : lets encrypt
+9. Secrets injection: Azure, secrets manager, Vault secrets and others
+10. Custom network policies 
+11. Maybe bgp stuff for on premises
+12. RBAC and stuff
+13. Oauth login 
+
+
+# Install argocd in the cluster
+```
+kubectl create namespace argocd
+
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml 
+```
+
+
+
 
 
 

@@ -29,7 +29,9 @@ Management cluster  ===> Prod cluster, dev clusters, or bunch of clusters
 11. Maybe bgp stuff for on premises
 12. RBAC and stuff
 13. Oauth login 
-
+14. DNS: external dns
+15. Kubecost: for cost tracking
+16. Autoscaling: karpenter , cluster autoscaler
 
 # Install argocd in the cluster
 ```
@@ -39,9 +41,35 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 ```
 
 
+### CI/CD steps
+- Dev merges PR to master
+- Docker image build , tagged with short sha and semver and pushed to ECR
+- Update the helm chart values
+- Application in Argo updates the cluster based on the helm chart value in the repository. 
+- Store helm chart in the repo
 
+### Add cluster to ArgoCd
+To add a external cluster to a argocd. Follow these steps.
+1. Must be logged in to argocd
 
+Get argocd password:
+```
+argocd admin initial-password -n argocd 
+```
 
+```
+argocd login localhost:8080
+```
+
+Add the cluster now:
+```
+argocd cluster add k8-argo-mgmt-cluster --
+```
+List argocd clsuters:
+```
+argocd cluster list
+
+```
 
 ### Delete namespace
 

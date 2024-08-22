@@ -22,7 +22,7 @@ spec:
         path: applications/
       destination:
         server: '{{url}}''
-        namespace: default
+        namespace: argocd
       syncPolicy:
         automated:
           prune: true

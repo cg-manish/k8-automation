@@ -19,10 +19,10 @@ spec:
       source:
         repoURL: https://github.com/k8-playground.git
         targetRevision: HEAD
-        path: applications/{{app}}
+        path: applications/
       destination:
-        server: '{{url}}'
-        namespace: '{{app}}'
+        server: '{{url}}''
+        namespace: default
       syncPolicy:
         automated:
           prune: true

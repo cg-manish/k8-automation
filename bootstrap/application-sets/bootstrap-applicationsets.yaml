@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: bootstrap-application-sets
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - cluster: argo-management-cluster
+            url: https://kubernetes.default.svc
+          - cluster: azure-k8-cluster
+            url: https://k8-argo-mgmt-cluster-dns-eaa71ld0.hcp.southindia.azmk8s.io
+  template:
+    metadata:
+      name: '{{cluster}}-bootstrap'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/k8-playground.git
+        targetRevision: HEAD
+        path: apps/{{app}}
+      destination:
+        server: '{{url}}'
+        namespace: '{{app}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+  syncPolicy:
+    preserveResourcesOnDeletion: true

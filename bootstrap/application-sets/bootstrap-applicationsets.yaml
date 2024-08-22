@@ -19,7 +19,7 @@ spec:
       source:
         repoURL: https://github.com/k8-playground.git
         targetRevision: HEAD
-        path: apps/{{app}}
+        path: applications/{{app}}
       destination:
         server: '{{url}}'
         namespace: '{{app}}'

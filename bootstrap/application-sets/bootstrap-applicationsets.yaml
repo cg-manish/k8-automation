@@ -18,10 +18,10 @@ spec:
       project: default
       source:
         repoURL: https://github.com/k8-playground.git
-        targetRevision: HEAD
+        targetRevision: argo-management-cluster
         path: applications/
       destination:
-        server: '{{url}}''
+        server: '{{url}}'
         namespace: argocd
       syncPolicy:
         automated:

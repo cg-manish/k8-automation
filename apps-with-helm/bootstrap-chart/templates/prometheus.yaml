@@ -1,3 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: "monitoring"
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -6,7 +11,7 @@ metadata:
 spec:
   destination:
     namespace: monitoring
-    server: https://kubernetes.default.svc
+    server: {{.Values.destination.server}}
   source:
     repoURL: https://prometheus-community.github.io/helm-charts
     chart: kube-prometheus-stack
@@ -28,6 +33,7 @@ spec:
   syncPolicy:
     syncOptions:
       - ServerSideApply="true"
+      - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true

@@ -1,0 +1,7 @@
+destination:
+  server: https://kubernetes.default.svc
+
+repository:
+  url: https://github.com/your-org/argo-apps.git
+  path: apps/cert-manager
+  targetRevision: HEAD

@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    server: <cluster-api-server-url>
+    server: https://kubernetes.svc.default
     namespace: cert-manager
   source:
     repoURL: https://github.com/your-org/argo-apps.git

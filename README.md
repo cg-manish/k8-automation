@@ -1,5 +1,5 @@
 # What does this repository even do?
-The main goal of this repository is to act as management cluster for the ArgoCD. It will contain the manifest for the resoruces/app/application sets that go in the Argo cluster. 
+The main goal of this repository is to act as management cluster for the ArgoCD. It will contain the manifest for the resources/app/application sets that go in the Argo cluster. 
 
 This cluster will have its own monitoring and observability. Likewise it will also contain the Vault things.
 
@@ -14,6 +14,27 @@ Resources in the Argo cluster:
 
 
 Management cluster  ===> Prod cluster, dev clusters, or bunch of clusters
+
+                   +-------------------+
+                   | Argo Management   |
+                   |     Cluster       |
+                   +-------------------+
+                      /         \
+                     /           \
+           +----------------+   +----------------+
+           |   Project 1    |   |   Project 2    |
+           +----------------+   +----------------+
+            /    |    \          /    |    \
+           /     |     \        /     |     \
+    +-------+  +-------+  +-------+  +-------+  +-------+
+    |  Dev  |  |  UAT  |  |  Prod |  |  Dev  |  |  UAT  |
+    +-------+  +-------+  +-------+  +-------+  +-------+
+    (Cluster)  (Cluster)  (Cluster)  (Cluster)  (Cluster)
+
+
+![argo-image](./images/argo-arch-diagram.webp)
+
+
 
 ### Each clusters will have the following resources:
 1. CNI with CILIUM with Hubble stuff enabled
@@ -33,12 +54,21 @@ Management cluster  ===> Prod cluster, dev clusters, or bunch of clusters
 15. Kubecost: for cost tracking
 16. Autoscaling: karpenter , cluster autoscaler
 
+
+
+
+
 # Install argocd in the cluster
 ```
 kubectl create namespace argocd
 
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml 
 ```
+
+### How to manage argo by argo itself?
+- Add the install.yaml file in argo-cd folder. 
+- Create an application that refers to the install.yaml 
+- Run the init bash command to install Argocd file.
 
 
 ### CI/CD steps

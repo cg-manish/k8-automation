@@ -7,8 +7,8 @@ spec:
   generators:
     - list:
         elements:
-          - cluster: argo-management-cluster
-            url: https://kubernetes.default.svc
+          # - cluster: argo-management-cluster
+          #   url: https://kubernetes.default.svc
           - cluster: k8-dev-cluster
             url: https://k8-dev-cluster-dns-vjuoo8om.hcp.southindia.azmk8s.io:443
   template:
@@ -21,7 +21,7 @@ spec:
         targetRevision: argo-management-cluster
         path: applications/
       destination:
-        server: https://kubernetes.default.svc
+        server: {{url}}
         namespace: argocd
       syncPolicy:
         automated:

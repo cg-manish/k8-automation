@@ -17,7 +17,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/k8-playground.git
+        repoURL: git@github.com:cg-manish/k8-playground.git
         targetRevision: argo-management-cluster
         path: applications/
       destination:

@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: bootstrap-application-sets
+  name: application-sets
   namespace: argocd
 spec:
   generators:
@@ -9,9 +9,8 @@ spec:
         elements:
           - cluster: argo-management-cluster
             url: https://kubernetes.default.svc
-          # - cluster: azure-k8-cluster
-          #   url: https://k8-argo-mgmt-cluster-dns-eaa71ld0.hcp.southindia.azmk8s.io:443
- 
+          - cluster: k8-dev-cluster
+            url: https://k8-dev-cluster-dns-vjuoo8om.hcp.southindia.azmk8s.io:443
   template:
     metadata:
       name: '{{cluster}}-bootstrap-applicationsets'

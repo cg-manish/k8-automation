@@ -32,3 +32,11 @@ cd ..
 ls
  az aks get-credentials --resource-group kubernetes-project --name k8-argo-mgmt-cluster --overwrite-existing
 exit
+az account set --subscription 90d20ec2-4b61-45da-8516-65b24c6440f6
+az aks get-credentials --resource-group kubernetes-project --name k8-dev-cluster --overwrite-existing
+ls
+rm .kube
+rm -r /root/.kube
+ls
+az aks get-credentials --resource-group kubernetes-project --name k8-dev-cluster --overwrite-existing
+cat /root/.kube/config 

@@ -5,11 +5,22 @@
 kubectl cluster-info
 ```
 
+### Get contexts
+
+```
+kubectl config get-contexts
+```
+
 #### Set context
 ```
 k config set-context --current something
 ```
+ OR
  
+ ``` 
+ k config use-context cluster-context-name
+ ```
+
 
 ### Set namespace
 

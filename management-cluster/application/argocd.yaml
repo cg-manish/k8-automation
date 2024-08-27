@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/cg-manish/k8-playground.git
     targetRevision: argo-management-cluster
-    path: core-management-cluster/install
+    path: management-cluster/install
   project: default
   syncPolicy:
     syncOptions:

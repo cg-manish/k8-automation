@@ -10,13 +10,13 @@ spec:
     targetRevision: argo-management-cluster
     path: apps-base-chart/
     helm:
-      # valueFiles:
-      #   - clusters/k8-cluster-azure-dev/values.yaml
-      valueObject:
-        cluster:
-          name: k8-dev-cluster
-        destination:
-          server: https://k8-dev-cluster-dns-vjuoo8om.hcp.southindia.azmk8s.io:443
+      valueFiles:
+        - ../clusters/k8-cluster-azure-dev/values.yaml
+      # valueObject:
+      #   cluster:
+      #     name: k8-dev-cluster
+      #   destination:
+      #     server: https://k8-dev-cluster-dns-vjuoo8om.hcp.southindia.azmk8s.io:443
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd

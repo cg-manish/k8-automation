@@ -20,9 +20,9 @@ spec:
               service.beta.kubernetes.io/azure-load-balancer-resource-group: kubernetes-project
             externalTrafficPolicy: Local
           metrics:
-            enabled: true
+            enabled: false
             serviceMonitor:
-              enabled: true
+              enabled: false
   project: default
   syncPolicy:
     syncOptions:

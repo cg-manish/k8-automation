@@ -1,4 +1,0 @@
-cluster:
-  name: "cluster-local"
-destination:
-  server: https://kubernetes.default.svc

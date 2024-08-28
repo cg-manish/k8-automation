@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ingress-nginx
+  namespace: argocd
+spec:
+  destination:
+    server: '{{ .Values.destination.server }}'
+    namespace: ingress-nginx
+  source:
+    repoURL: https://github.com/cg-manish/k8-playground.git
+    targetRevision: argo-management-cluster
+    path: sample-apps/
+  project: default
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true

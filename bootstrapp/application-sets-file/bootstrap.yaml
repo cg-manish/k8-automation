@@ -9,7 +9,7 @@ spec:
         repoURL: https://github.com/cg-manish/k8-playground.git
         revision: argo-management-cluster
         directories:
-        - path: clusters/
+          - path: clusters/
   template:
     metadata:
       name: '{{.path.basename}}-applicationsets'

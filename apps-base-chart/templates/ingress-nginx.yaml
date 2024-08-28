@@ -18,6 +18,7 @@ spec:
           service:
             annotations:
               service.beta.kubernetes.io/azure-load-balancer-resource-group: kubernetes-project
+              service.beta.kubernetes.io/azure-load-balancer-sku: basic
             externalTrafficPolicy: Local
           metrics:
             enabled: false

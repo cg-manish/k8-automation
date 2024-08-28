@@ -17,7 +17,7 @@ spec:
           replicaCount: 1
           service:
             annotations:
-              service.beta.kubernetes.io/azure-load-balancer-resource-group: <your-azure-resource-group>
+              service.beta.kubernetes.io/azure-load-balancer-resource-group: kubernetes-project
             externalTrafficPolicy: Local
           metrics:
             enabled: true

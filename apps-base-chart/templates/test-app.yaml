@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: 'not-test-app-{{ .Values.destination.server }}'
+  name: 'not-test-app-{{ .Values.cluster.name }}'
   namespace: argocd
 spec:
   destination:

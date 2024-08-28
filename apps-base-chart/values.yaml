@@ -1,4 +1,4 @@
-clustter:
+cluster:
   name: test-cluster
 destination:
   server: https://kubernetes.default.svc

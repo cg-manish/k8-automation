@@ -12,13 +12,13 @@ spec:
         - path: clusters/
   template:
     metadata:
-      name: {{.path.basename}}
+      name: '{{.path.basename}}'
     spec:
       project: default
       source:
         repoURL: https://github.com/cg-manish/k8-playground.git
         targetRevision: argo-management-cluster
-        path: {{.path.basename}}
+        path: '{{.path.basename}}'
       destination:
         server: https://kubernetes.default.svc
         namespace: argocd
@@ -26,5 +26,3 @@ spec:
         automated:
           prune: true
           selfHeal: true
-  syncPolicy:
-    preserveResourcesOnDeletion: true

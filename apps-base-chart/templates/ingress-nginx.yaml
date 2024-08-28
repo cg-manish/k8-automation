@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    server: '{{.Values.destination.server}}'
+    server: https://k8-dev-cluster-dns-vjuoo8om.hcp.southindia.azmk8s.io:443
     namespace: ingress-nginx
   source:
     repoURL: https://kubernetes.github.io/ingress-nginx

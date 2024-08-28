@@ -1,0 +1,1 @@
+Application/ingress-nginx is part of applications argocd/k8-cluster-azure-dev and cluster1-dev-apps

@@ -11,6 +11,8 @@ spec:
     repoURL: https://github.com/cg-manish/k8-playground.git
     path: clusters/
     targetRevision: argo-management-cluster
+    direcotry:
+      recurse: true
   project: default
   syncPolicy:
     automated:

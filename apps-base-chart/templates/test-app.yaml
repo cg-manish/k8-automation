@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    server: https://k8-dev-cluster-dns-vjuoo8om.hcp.southindia.azmk8s.io:443
+    server: {{ .Values.destination.server }}
     namespace: not-test-app
   source:
     repoURL: https://github.com/cg-manish/k8-playground.git

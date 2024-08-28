@@ -12,7 +12,7 @@ spec:
           - path: clusters/
   template:
     metadata:
-      name: '{{.path.basename}}-applicationsets'
+      name: {{.path.basename}}
     spec:
       project: default
       source:

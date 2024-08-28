@@ -5,23 +5,22 @@ metadata:
   namespace: argocd
 spec:
   generators:
-    - list:
-        elements:
-          # - cluster: argo-management-cluster
-          #   url: https://kubernetes.default.svc
-          - cluster: k8-dev-cluster
-            url: https://k8-dev-cluster-dns-vjuoo8om.hcp.southindia.azmk8s.io:443
+    - git:
+        repoURL: https://github.com/cg-manish/k8-playground.git
+        revision: argo-management-cluster
+        directories:
+        - path: clusters/
   template:
     metadata:
-      name: '{{cluster}}-bootstrap-applicationsets'
+      name: '{{.path.basename}}-applicationsets'
     spec:
       project: default
       source:
         repoURL: https://github.com/cg-manish/k8-playground.git
         targetRevision: argo-management-cluster
-        path: applications/
+        path: {{.path.basename}}
       destination:
-        server: {{url}}
+        server: https://kubernetes.default.svc
         namespace: argocd
       syncPolicy:
         automated:

@@ -1,17 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app-of-apps
+  name: cluster1-dev-apps
   namespace: argocd
 spec:
+  project: default
+  source:
+    repoURL: https://github.com/cg-manish/k8-playground.git
+    targetRevision: argo-management-cluster
+    path: apps-base-chart
+    helm:
+      valueFiles:
+        - ./values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
-  source:
-    repoURL: https://github.com/cg-manish/k8-playground.git
-    path: clusters/
-    targetRevision: argo-management-cluster
-  project: default
   syncPolicy:
     automated:
       prune: true

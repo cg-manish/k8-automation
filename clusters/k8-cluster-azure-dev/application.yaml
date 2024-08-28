@@ -12,7 +12,7 @@ spec:
     helm:
       # valueFiles:
       #   - clusters/k8-cluster-azure-dev/values.yaml
-      values: |
+      valueObject:
         cluster:
           name: k8-dev-cluster
         destination:

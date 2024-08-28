@@ -1,0 +1,6 @@
+pf:
+	kubectl config use-context kind-argo-local-cluster &&  kubectl port-forward svc/argocd-server -n argocd 8080:443
+ac:
+	kubectl config use-context k8-dev-cluster
+lc:
+	kubectl config use-context kind-argo-local-cluster

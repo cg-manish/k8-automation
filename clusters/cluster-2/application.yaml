@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cluster-2-application
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/cg-manish/k8-playground.git
+    targetRevision: argo-management-cluster
+    path: apps-base-chart/
+    helm:
+      valueFiles:
+        - ../clusters/cluster-2/values.yaml
+      # valueObject:
+      #   cluster:
+      #     name: k8-dev-cluster
+      #   destination:
+      #     server: https://k8-dev-cluster-dns-vjuoo8om.hcp.southindia.azmk8s.io:443
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

@@ -1,3 +1,4 @@
 argo-cd/charts
 certs/
 config
+.azure/

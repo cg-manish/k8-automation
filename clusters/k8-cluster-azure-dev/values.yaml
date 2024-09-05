@@ -1,4 +1,4 @@
 cluster:
   name: k8-dev-cluster
 destination:
-  server: https://k8-dev-cluster-dns-vjuoo8om.hcp.southindia.azmk8s.io:443
+  server: https://k8-dev-cluster-tpbizuik.hcp.southindia.azmk8s.io:443

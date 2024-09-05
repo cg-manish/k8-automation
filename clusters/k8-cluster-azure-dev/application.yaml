@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/cg-manish/k8-playground.git
     targetRevision: argo-management-cluster
-    path: apps-base-chart/
+    path: core-apps-base-chart/
     helm:
       valueFiles:
         - ../clusters/k8-cluster-azure-dev/values.yaml

@@ -30,7 +30,7 @@ spec:
   ports:
   - protocol: TCP
     port: 80
-    targetPort:
+    targetPort: 5678
 
 --- 
 #  ingress

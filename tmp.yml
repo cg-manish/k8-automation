@@ -1,56 +1,215 @@
 apiVersion: v1
-kind: Service
+items:
+- apiVersion: v1
+  kind: Node
+  metadata:
+    annotations:
+      kubeadm.alpha.kubernetes.io/cri-socket: unix:///run/containerd/containerd.sock
+      node.alpha.kubernetes.io/ttl: "0"
+      volumes.kubernetes.io/controller-managed-attach-detach: "true"
+    creationTimestamp: "2024-08-22T19:24:38Z"
+    labels:
+      beta.kubernetes.io/arch: arm64
+      beta.kubernetes.io/os: linux
+      kubernetes.io/arch: arm64
+      kubernetes.io/hostname: argo-local-cluster-control-plane
+      kubernetes.io/os: linux
+      node-role.kubernetes.io/control-plane: ""
+    name: argo-local-cluster-control-plane
+    resourceVersion: "741902"
+    uid: 910ea956-fc94-4689-8abb-99caba02f6e9
+  spec:
+    podCIDR: 10.244.0.0/24
+    podCIDRs:
+    - 10.244.0.0/24
+    providerID: kind://docker/argo-local-cluster/argo-local-cluster-control-plane
+  status:
+    addresses:
+    - address: 172.18.0.2
+      type: InternalIP
+    - address: argo-local-cluster-control-plane
+      type: Hostname
+    allocatable:
+      cpu: "8"
+      ephemeral-storage: 61202244Ki
+      hugepages-1Gi: "0"
+      hugepages-2Mi: "0"
+      hugepages-32Mi: "0"
+      hugepages-64Ki: "0"
+      memory: 4017032Ki
+      pods: "110"
+    capacity:
+      cpu: "8"
+      ephemeral-storage: 61202244Ki
+      hugepages-1Gi: "0"
+      hugepages-2Mi: "0"
+      hugepages-32Mi: "0"
+      hugepages-64Ki: "0"
+      memory: 4017032Ki
+      pods: "110"
+    conditions:
+    - lastHeartbeatTime: "2024-09-06T22:34:34Z"
+      lastTransitionTime: "2024-08-22T19:24:37Z"
+      message: kubelet has sufficient memory available
+      reason: KubeletHasSufficientMemory
+      status: "False"
+      type: MemoryPressure
+    - lastHeartbeatTime: "2024-09-06T22:34:34Z"
+      lastTransitionTime: "2024-08-22T19:24:37Z"
+      message: kubelet has no disk pressure
+      reason: KubeletHasNoDiskPressure
+      status: "False"
+      type: DiskPressure
+    - lastHeartbeatTime: "2024-09-06T22:34:34Z"
+      lastTransitionTime: "2024-08-22T19:24:37Z"
+      message: kubelet has sufficient PID available
+      reason: KubeletHasSufficientPID
+      status: "False"
+      type: PIDPressure
+    - lastHeartbeatTime: "2024-09-06T22:34:34Z"
+      lastTransitionTime: "2024-08-22T19:24:59Z"
+      message: kubelet is posting ready status
+      reason: KubeletReady
+      status: "True"
+      type: Ready
+    daemonEndpoints:
+      kubeletEndpoint:
+        Port: 10250
+    images:
+    - names:
+      - quay.io/argoproj/argocd@sha256:edb954ce4079d11dbfd4c043c3eade5b4f7c64af6cb908ff09df16d2568452bc
+      - quay.io/argoproj/argocd:latest
+      sizeBytes: 169813688
+    - names:
+      - quay.io/argoproj/argocd@sha256:c6c84bec6e195e1cc20c72cef49c9a8a111686f55c630422223918aba15904c0
+      sizeBytes: 169660926
+    - names:
+      - quay.io/argoproj/argocd@sha256:2b47fb9ee4997b004d68824884cf5dc1bae0199c28566b595fe5a45fa0dbdb00
+      sizeBytes: 169660366
+    - names:
+      - quay.io/argoproj/argocd@sha256:266ba8d0d24088bb005f3f972932ddfaa353d2df2bee0351ac80154a295a4f5d
+      sizeBytes: 169601494
+    - names:
+      - quay.io/argoproj/argocd@sha256:353c5c4fec6dc5416eaada3a61dbbe13f8889af7346b2e36789d253b6a0a73db
+      sizeBytes: 169589564
+    - names:
+      - quay.io/argoproj/argocd@sha256:6bd38f366554bf11a32695dff7f2f88bcfad06a5af748dcf17d7b5aee8bd2428
+      sizeBytes: 169578063
+    - names:
+      - quay.io/argoproj/argocd@sha256:a0ebfa7d419a1c78babc80fc77de093751d8a5fabffcaf3f7e81a4d55a23cc0d
+      - quay.io/argoproj/argocd:v2.12.1
+      sizeBytes: 158961016
+    - names:
+      - docker.io/grafana/grafana@sha256:0dc5a246ab16bb2c38a349fb588174e832b4c6c2db0981d0c3e6cd774ba66a54
+      - docker.io/grafana/grafana:11.0.0
+      sizeBytes: 112515613
+    - names:
+      - registry.k8s.io/ingress-nginx/controller@sha256:d5f8217feeac4887cb1ed21f27c2674e58be06bd8f5184cacea2a69abaf78dce
+      sizeBytes: 102390845
+    - names:
+      - docker.io/library/import-2024-08-13@sha256:d057bfee39e5f7333a8b835d2fcfbccda66fe0bb7fb853fa0ef2f423afad2cd7
+      - registry.k8s.io/kube-proxy-arm64:v1.31.0
+      - registry.k8s.io/kube-proxy:v1.31.0
+      sizeBytes: 95946936
+    - names:
+      - docker.io/library/import-2024-08-13@sha256:12503b5bb710c8e2834bfc7d31f831a4fdbcca675085a6fd0f8d9b6966074df6
+      - registry.k8s.io/kube-apiserver-arm64:v1.31.0
+      - registry.k8s.io/kube-apiserver:v1.31.0
+      sizeBytes: 92561393
+    - names:
+      - docker.io/library/import-2024-08-13@sha256:7d525a0c3dee3e92634859df3f4671a49e5b76f7dc23e84d98270b5d6abd5e9e
+      - registry.k8s.io/kube-controller-manager-arm64:v1.31.0
+      - registry.k8s.io/kube-controller-manager:v1.31.0
+      sizeBytes: 86925128
+    - names:
+      - docker.io/library/import-2024-08-13@sha256:8e9383515598018b0cb76fe045274b2acfeda6156856f0131df9529753053a7b
+      - registry.k8s.io/kube-scheduler-arm64:v1.31.0
+      - registry.k8s.io/kube-scheduler:v1.31.0
+      sizeBytes: 67002184
+    - names:
+      - registry.k8s.io/etcd:3.5.15-0
+      sizeBytes: 66535646
+    - names:
+      - ghcr.io/dexidp/dex@sha256:bc7cfce7c17f52864e2bb2a4dc1d2f86a41e3019f6d42e81d92a301fad0c8a1d
+      - ghcr.io/dexidp/dex:v2.41.1
+      sizeBytes: 36208890
+    - names:
+      - docker.io/kindest/kindnetd:v20240813-c6f155d6
+      sizeBytes: 33309097
+    - names:
+      - ghcr.io/dexidp/dex@sha256:b1d793440a98d7ecde7fa5dbc8cee1204ef0e8918d9e51ef6201f50d12d55925
+      - ghcr.io/dexidp/dex:v2.38.0
+      sizeBytes: 31098394
+    - names:
+      - quay.io/kiwigrid/k8s-sidecar@sha256:b8d5067137fec093cf48670dc3a1dbb38f9e734f3a6683015c2e89a45db5fd16
+      - quay.io/kiwigrid/k8s-sidecar:1.26.1
+      sizeBytes: 23306146
+    - names:
+      - registry.k8s.io/ingress-nginx/kube-webhook-certgen@sha256:a320a50cc91bd15fd2d6fa6de58bd98c1bd64b9a6f926ce23a600d87043455a3
+      sizeBytes: 22115605
+    - names:
+      - quay.io/jetstack/cert-manager-controller@sha256:eee34b3de2dd63f7e5ac459fc2d407662d433fd267d574557b76ee3c7d4bc44f
+      - quay.io/jetstack/cert-manager-controller:v1.15.3
+      sizeBytes: 18364169
+    - names:
+      - docker.io/kindest/local-path-provisioner:v20240813-c6f155d6
+      sizeBytes: 17449560
+    - names:
+      - registry.k8s.io/coredns/coredns:v1.11.1
+      sizeBytes: 16482581
+    - names:
+      - quay.io/jetstack/cert-manager-webhook@sha256:fdcb9ac4963fa1bb0c9d7cad38f0ba2c65328aa436f8653c998594d936a96488
+      - quay.io/jetstack/cert-manager-webhook:v1.15.3
+      sizeBytes: 15826953
+    - names:
+      - quay.io/prometheus-operator/prometheus-operator@sha256:6b3f6d8b4c0a6c77dfd447ee5870f6abd939151915934f1c61e379a039798030
+      - quay.io/prometheus-operator/prometheus-operator:v0.74.0
+      sizeBytes: 15658470
+    - names:
+      - docker.io/library/redis@sha256:ed9881952f1a62a7f177ae1a4d65dc298b3c0ad5f92b6e24b50c1866904386b5
+      - docker.io/library/redis:7.0.15-alpine
+      sizeBytes: 14077459
+    - names:
+      - quay.io/jetstack/cert-manager-startupapicheck@sha256:4cbc1b022a2385ce98d454dfc206834a26a3bb07d1d0b581cdc50c34a6bf927d
+      - quay.io/jetstack/cert-manager-startupapicheck:v1.15.3
+      sizeBytes: 12702559
+    - names:
+      - registry.k8s.io/kube-state-metrics/kube-state-metrics@sha256:b401fae262a5decf83c4311083f8efb4d6ca7b6a733e57b95344cb8dccd14e11
+      - registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.12.0
+      sizeBytes: 12464031
+    - names:
+      - quay.io/jetstack/cert-manager-cainjector@sha256:e0ce8ae280c8d7263663b6a6d3ea5e122632936cde9bdd5321cf7109199f51aa
+      - quay.io/jetstack/cert-manager-cainjector:v1.15.3
+      sizeBytes: 12461083
+    - names:
+      - quay.io/prometheus/node-exporter@sha256:fa7fa12a57eff607176d5c363d8bb08dfbf636b36ac3cb5613a202f3c61a6631
+      - quay.io/prometheus/node-exporter:v1.8.1
+      sizeBytes: 11408452
+    - names:
+      - docker.io/hashicorp/http-echo@sha256:fcb75f691c8b0414d670ae570240cbf95502cc18a9ba57e982ecac589760a186
+      - docker.io/hashicorp/http-echo:latest
+      sizeBytes: 4388371
+    - names:
+      - docker.io/kindest/local-path-helper:v20230510-486859a6
+      sizeBytes: 2922287
+    - names:
+      - registry.k8s.io/pause:3.10
+      sizeBytes: 267933
+    - names:
+      - mcr.microsoft.com/mcr/hello-world@sha256:92c7f9c92844bbbb5d0a101b22f7c2a7949e40f8ea90c8b3bc396879d95e899a
+      - mcr.microsoft.com/mcr/hello-world:latest
+      sizeBytes: 3011
+    nodeInfo:
+      architecture: arm64
+      bootID: 5939cfb4-d44b-49ac-9764-2d475e1859a5
+      containerRuntimeVersion: containerd://1.7.18
+      kernelVersion: 6.6.31-linuxkit
+      kubeProxyVersion: ""
+      kubeletVersion: v1.31.0
+      machineID: 48c6c132b5cf45deb2022dc0ea5dc420
+      operatingSystem: linux
+      osImage: Debian GNU/Linux 12 (bookworm)
+      systemUUID: 48c6c132b5cf45deb2022dc0ea5dc420
+kind: List
 metadata:
-  annotations:
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{"service.beta.kubernetes.io/azure-load-balancer-resource-group":"kubernetes-project"},"labels":{"app.kubernetes.io/component":"controller","app.kubernetes.io/instance":"ingress-nginx-k8-dev-cluster","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"ingress-nginx","app.kubernetes.io/part-of":"ingress-nginx","app.kubernetes.io/version":"1.11.2","helm.sh/chart":"ingress-nginx-4.11.2"},"name":"ingress-nginx-k8-dev-cluster-controller","namespace":"ingress-nginx"},"spec":{"externalTrafficPolicy":"Local","ipFamilies":["IPv4"],"ipFamilyPolicy":"SingleStack","ports":[{"appProtocol":"http","name":"http","port":80,"protocol":"TCP","targetPort":"http"},{"appProtocol":"https","name":"https","port":443,"protocol":"TCP","targetPort":"https"}],"selector":{"app.kubernetes.io/component":"controller","app.kubernetes.io/instance":"ingress-nginx-k8-dev-cluster","app.kubernetes.io/name":"ingress-nginx"},"type":"LoadBalancer"}}
-    service.beta.kubernetes.io/azure-load-balancer-resource-group: kubernetes-project
-  creationTimestamp: "2024-09-06T14:54:07Z"
-  finalizers:
-  - service.kubernetes.io/load-balancer-cleanup
-  labels:
-    app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: ingress-nginx-k8-dev-cluster
-    app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: ingress-nginx
-    app.kubernetes.io/part-of: ingress-nginx
-    app.kubernetes.io/version: 1.11.2
-    helm.sh/chart: ingress-nginx-4.11.2
-  name: ingress-nginx-k8-dev-cluster-controller
-  namespace: ingress-nginx
-  resourceVersion: "100351"
-  uid: 3ff7c903-f33e-413d-a9ce-54cb4f221957
-spec:
-  allocateLoadBalancerNodePorts: true
-  clusterIP: 10.0.231.229
-  clusterIPs:
-  - 10.0.231.229
-  externalTrafficPolicy: Local
-  healthCheckNodePort: 30377
-  internalTrafficPolicy: Cluster
-  ipFamilies:
-  - IPv4
-  ipFamilyPolicy: SingleStack
-  ports:
-  - appProtocol: http
-    name: http
-    nodePort: 32271
-    port: 80
-    protocol: TCP
-    targetPort: http
-  - appProtocol: https
-    name: https
-    nodePort: 30872
-    port: 443
-    protocol: TCP
-    targetPort: https
-  selector:
-    app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: ingress-nginx-k8-dev-cluster
-    app.kubernetes.io/name: ingress-nginx
-  sessionAffinity: None
-  type: LoadBalancer
-status:
-  loadBalancer:
-    ingress:
-    - ip: 4.213.44.37
+  resourceVersion: ""

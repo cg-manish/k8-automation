@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: http-echo
+  name: hell-world
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: http-echo
+      app: hell-world
   template:
     metadata:
       labels:
-        app: http-echo
+        app: hell-world
     spec:
       containers:
-      - name: http-echo
+      - name: hell-world
         image: mcr.microsoft.com/mcr/hello-world:latest
         ports:
         - containerPort: 80
@@ -21,10 +21,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: http-echo-service
+  name: hell-world-service
 spec:
   selector:
-    app: http-echo
+    app: hell-world
   ports:
   - protocol: TCP
     port: 80
@@ -32,7 +32,6 @@ spec:
 
 --- 
 #  ingress
-
 
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -50,6 +49,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: http-echo-service
+                name: hell-world-service
                 port:
                   number: 80

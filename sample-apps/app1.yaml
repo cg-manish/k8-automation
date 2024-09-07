@@ -38,6 +38,7 @@ metadata:
   name: sample-app-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/issuer: letsencrypt-staging
 spec:
   ingressClassName: nginx
   rules:
@@ -51,3 +52,27 @@ spec:
                 name: sample-app-service
                 port:
                   number: 80
+  tls:
+    - hosts:
+        - k8.macgain.net
+      secretName: k8-macgain-net-tls
+
+--- 
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: letsencrypt-staging
+spec:
+  acme:
+    # The ACME server URL
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    # Email address used for ACME registration
+    email: lolbdur@gmail.com
+    # Name of a secret used to store the ACME account private key
+    privateKeySecretRef:
+      name: letsencrypt-staging
+    # Enable the HTTP-01 challenge provider
+    solvers:
+      - http01:
+          ingress:
+            ingressClassName: nginx

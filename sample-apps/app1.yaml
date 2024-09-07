@@ -39,7 +39,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  inressClassName: nginx
+  ingressClassName: nginx
   rules:
     - host: k8.macgain.net
       http:

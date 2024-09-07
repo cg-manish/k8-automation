@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hell-world
+  name: sample-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hell-world
+      app: sample-app
   template:
     metadata:
       labels:
-        app: hell-world
+        app: sample-app
     spec:
       containers:
-      - name: hell-world
+      - name: sample-app
         image: mcr.microsoft.com/azuredocs/aci-helloworld:latest
         ports:
         - containerPort: 80
@@ -21,10 +21,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: hell-world-service
+  name: sample-app-service
 spec:
   selector:
-    app: hell-world
+    app: sample-app
   ports:
   - protocol: TCP
     port: 80
@@ -35,7 +35,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: my-ingress
+  name: sample-app-ingress
   namespace: default
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
@@ -48,6 +48,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: hell-world-service
+                name: sample-app-service
                 port:
                   number: 80

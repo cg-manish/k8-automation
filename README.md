@@ -222,7 +222,8 @@ vault operator unseal
 Azure Kubernetes serviece does not automaticlaly pick up the load balncer's public IP address due to access issues.
 ####  Add network contributor access in Azure for the cluster to get access to public IP address of load balancer
 ```
- az role assignment create --assignee 5486aa54-5cfd-419d-bca2-4089bd268a9d \
+ az role assignment create --assignee 2ef0274f-247e-464f-bcc1-992e0dba7161 \
  --role "Network Contributor" \
 --scope /subscriptions/90d20ec2-4b61-45da-8516-65b24c6440f6/resourceGroups/kubernetes-project
 ````
+

@@ -11,7 +11,7 @@ spec:
     path: core/base-chart
     helm:
       valueFiles:
-        - .././clusters/cluster-2/values.yaml
+        - ../../clusters/cluster-2/values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd

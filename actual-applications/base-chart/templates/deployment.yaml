@@ -1,23 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-<<<<<<< HEAD
-  name: sample-app
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: sample-app
-  template:
-    metadata:
-      labels:
-        app: sample-app
-    spec:
-      containers:
-      - name: sample-app
-        image: mcr.microsoft.com/azuredocs/aci-helloworld:latest
-        pullPolicy: IfNotPresent
-=======
   name: {{.Values.app_name}}
 spec:
   replicas: {{.Values.replicaCount}}
@@ -33,6 +16,5 @@ spec:
       - name: {{.Values.app_name}}
         image: '{{.Values.image.repository}}:{{.Values.image.tag}}'
         pullPolicy: {{.Values.image.pullPolicy}}
->>>>>>> master
         ports:
         - containerPort: 80

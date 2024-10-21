@@ -6,11 +6,7 @@ metadata:
 spec:
   generators:
     - git:
-<<<<<<< HEAD
-        repoURL: https://github.com/cg-manish/k8-playground.git
-=======
         repoURL: https://github.com/cg-manish/k8-automation.git
->>>>>>> master
         revision: argo-management-cluster
         directories:
           - path: clusters/
@@ -20,11 +16,7 @@ spec:
     spec:
       project: default
       source:
-<<<<<<< HEAD
-        repoURL: https://github.com/cg-manish/k8-playground.git
-=======
         repoURL: https://github.com/cg-manish/k8-automation.git
->>>>>>> master
         targetRevision: argo-management-cluster
         path: '{{path.basename}}'
       destination:

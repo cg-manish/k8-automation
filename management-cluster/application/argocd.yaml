@@ -8,11 +8,7 @@ spec:
     server: https://kubernetes.default.svc
     namespace: argocd
   source:
-<<<<<<< HEAD
-    repoURL: https://github.com/cg-manish/k8-playground.git
-=======
     repoURL: https://github.com/cg-manish/k8-automation.git
->>>>>>> master
     targetRevision: argo-management-cluster
     path: management-cluster/install
   project: default

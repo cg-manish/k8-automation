@@ -4,8 +4,5 @@ ac:
 	kubectl config use-context k8-dev-cluster
 lc:
 	kubectl config use-context kind-argo
-<<<<<<< HEAD
-=======
 	
 .PHONY: pf ac lc
->>>>>>> master

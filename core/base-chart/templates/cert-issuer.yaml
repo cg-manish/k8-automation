@@ -1,16 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: 'sample-app-{{ .Values.cluster.name }}'
+  name: 'cert-issuer-{{ .Values.cluster.name }}'
   namespace: argocd
 spec:
   destination:
     server: {{ .Values.destination.server }}
-    namespace: not-test-app
+    namespace: cert-manager
   source:
     repoURL: https://github.com/cg-manish/k8-playground.git
     targetRevision: argo-management-cluster
-    path: sample-apps/
+    path: core/cert-issuer/apps
+    directory:
+      recurse: true
   project: default
   syncPolicy:
     syncOptions:

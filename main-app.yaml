@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   source:
     path: 'bootstrapp/app-of-apps'
-    repoURL: https://github.com/cg-manish/k8-playground.git
+    repoURL: https://github.com/cg-manish/k8-automation.git
     targetRevision: argo-management-cluster
   project: default
   syncPolicy:
@@ -18,7 +18,7 @@ spec:
       selfHeal: true
 project: default
 source:
-  repoURL: https://github.com/cg-manish/k8-playground.git
+  repoURL: https://github.com/cg-manish/k8-automation.git
   path: clusters/
   targetRevision: argo-management-cluster
   directory:

@@ -39,6 +39,10 @@ securityContext: {}
 service:
   type: ClusterIP
   port: 80
+<<<<<<< HEAD
+=======
+  targetPort: 80
+>>>>>>> master
 
 ingress:
   enabled: false

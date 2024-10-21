@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #  ingress
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -6,6 +7,15 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
     cert-manager.io/issuer: letsencrypt-staging
+=======
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: '{{.Values.app_name}}-ingress'
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/issuer: {{.Values.ingress.cert_issuer}}
+>>>>>>> master
 spec:
   ingressClassName: nginx
   rules:

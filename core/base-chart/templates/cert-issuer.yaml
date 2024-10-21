@@ -1,20 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd
+  name: 'cert-issuer-{{ .Values.cluster.name }}'
   namespace: argocd
 spec:
   destination:
-    server: https://kubernetes.default.svc
-    namespace: argocd
+    server: {{ .Values.destination.server }}
+    namespace: cert-manager
   source:
-<<<<<<< HEAD
     repoURL: https://github.com/cg-manish/k8-playground.git
-=======
-    repoURL: https://github.com/cg-manish/k8-automation.git
->>>>>>> master
     targetRevision: argo-management-cluster
-    path: management-cluster/install
+    path: core/cert-issuer/apps
+    directory:
+      recurse: true
   project: default
   syncPolicy:
     syncOptions:

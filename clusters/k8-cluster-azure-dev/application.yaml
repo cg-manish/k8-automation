@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -24,3 +25,31 @@ spec:
     automated:
       prune: true
       selfHeal: true
+=======
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: k8-cluster-azure-dev
+#   namespace: argocd
+# spec:
+#   project: default
+#   source:
+#     repoURL: https://github.com/cg-manish/k8-automation.git
+#     targetRevision: argo-management-cluster
+#     path: core/base-chart
+#     helm:
+#       valueFiles:
+#         - ../clusters/k8-cluster-azure-dev/values.yaml
+#       # valueObject:
+#       #   cluster:
+#       #     name: k8-dev-cluster
+#       #   destination:
+#       #     server: https://k8-dev-clsuter-dns-z50tsnh2.hcp.centralindia.azmk8s.io:443
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: argocd
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+>>>>>>> master

@@ -16,18 +16,3 @@ spec:
     automated:
       prune: true
       selfHeal: true
-project: default
-source:
-  repoURL: https://github.com/cg-manish/k8-automation.git
-  path: clusters/
-  targetRevision: argo-management-cluster
-  directory:
-    recurse: true
-    jsonnet: {}
-destination:
-  server: https://kubernetes.default.svc
-  namespace: argocd
-syncPolicy:
-  automated:
-    prune: true
-    selfHeal: true

@@ -1,0 +1,51 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: grafana-ingress
+  namespace: monitoring
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/issuer: "letsencrypt-staging"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: k8.macgain.net
+      http:
+        paths:
+          - path: /grafana
+            pathType: Prefix
+            backend:
+              service:
+                name: kube-prometheus-stack-grafana
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - k8.macgain.net
+      secretName: k8-macgain-net-tls
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: prometheus-ingress
+  namespace: monitoring
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/issuer: "letsencrypt-staging"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: k8.macgain.net
+      http:
+        paths:
+          - path: /prom
+            pathType: Prefix
+            backend:
+              service:
+                name: kube-prometheus-stack-prometheus
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - k8.macgain.net
+      secretName: k8-macgain-net-tls

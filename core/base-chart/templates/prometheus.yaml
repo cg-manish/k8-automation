@@ -16,6 +16,9 @@ spec:
         prometheus:
           prometheusSpec:
             serviceMonitorSelectorNilUsesHelmValues: false
+            serviceMonitorSelector:
+              matchLabels:
+                release: prometheus-operator
         prometheusOperator:
           tls:
             enabled: false
